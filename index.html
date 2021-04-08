@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dormir sin descansar</title>
+
+<!-- icono de la pestaña -->
+<link rel="shortcut icon" href="principe4.png">
+
+<!--  a-frame -->
+   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+<!-- LIBRERIAS DE AMBIENTE -->
+<script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- PANTALLA DE ESPERA -->
+<a-scene  loading-screen="dotsColor: blue; backgroundColor: tomato" vr-mode-ui="enabled: false">
+
+<!-- AMBIENTE, animación cielo y suelo -->
+<a-entity environment="active: true; skyType: gradient; skyColor: #fb2566; horizonColor: #cfe0af; lightPosition: 1 4 1s; fog: 0.6; flatShading: true;  groundYScale: 3.5699999999999994;  groundColor: #f7ac57; groundColor2: #f8eca2; dressing: stones; dressingAmount: 50;  dressingScale: 1.9; dressingOnPlayArea: 0.02;  shadowSize: 10.52; preset: yavapai"
+ animation__cielo="property:environment.skyColor; to: #fa8b0c; dur: 8000; easing: linear; loop: true; dir: alternate" 
+ animation__pisos="property:environment.groundColor; to: #8FF7FF; dur: 8000; easing: linear; loop: true; dir: alternate" ></a-entity>
+
+    
+</body>
+</html>
