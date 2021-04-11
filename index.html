@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dormir sin descansar</title>
+    <title>ɹɐsuɐɔsǝp uıs ɹıɯɹop</title>
 
 <!-- icono de la pestaña -->
 <link rel="shortcut icon" href="principe4.png">
@@ -15,18 +15,77 @@
 <!-- LIBRERIAS DE AMBIENTE -->
 <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
 
+ <!-- gltf con animación -->
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> 
 </head>
 
 <body>
 
+<!-- <a-sky color="pink"></a-sky> -->
+
 <!-- PANTALLA DE ESPERA -->
-<a-scene  loading-screen="dotsColor: blue; backgroundColor: tomato" vr-mode-ui="enabled: false">
+<a-scene  loading-screen="dotsColor: #60e3f7; backgroundColor: tomato" vr-mode-ui="enabled: false">
 
 <!-- AMBIENTE, animación cielo y suelo -->
-<a-entity environment="active: true; skyType: gradient; skyColor: #fb2566; horizonColor: #cfe0af; lightPosition: 1 4 1s; fog: 0.6; flatShading: true;  groundYScale: 3.5699999999999994;  groundColor: #f7ac57; groundColor2: #f8eca2; dressing: stones; dressingAmount: 50;  dressingScale: 1.9; dressingOnPlayArea: 0.02;  shadowSize: 10.52; preset: yavapai"
- animation__cielo="property:environment.skyColor; to: #fa8b0c; dur: 8000; easing: linear; loop: true; dir: alternate" 
- animation__pisos="property:environment.groundColor; to: #8FF7FF; dur: 8000; easing: linear; loop: true; dir: alternate" ></a-entity>
-
+ <a-entity environment="active: true; skyType: gradient; skyColor: #fb2566; horizonColor: #cfe0af; lightPosition: 1 4 1s; fog: 0.6; flatShading: true;  groundYScale: 3.5699999999999994;  groundColor: #b7f6f7; groundColor2: #f0cd89; dressing: stones; dressingAmount: 50;  dressingScale: 1.9; dressingOnPlayArea: 0.02;  shadowSize: 10.52; preset: yavapai" 
+ animation__cielo="property:environment.skyColor; to: #fa8b0c; dur: 8000; easing: linear; loop: true; dir: alternate"></a-entity>
+ <!-- animation__pisos="property:environment.groundColor; to: #8FF7FF; dur: 8000; easing: linear; loop: true; dir: alternate" ></a-entity>
+ --> -->
+<!-- ASSETS -->
+ <a-assets>
+    <a-asset-item id="pills" src="./pills.gltf"></a-asset-item>
+    <a-asset-item id="vitrina" src="./vitrina.gltf"></a-asset-item>
+    <a-asset-item id="cup" src="./cup.gltf"></a-asset-item>
+    <a-asset-item id="bed" src="./bed.gltf"></a-asset-item>
+    <a-asset-item id="lamparas" src="./lamparas.gltf"></a-asset-item>
+    <a-asset-item id="caballito" src="./caballito.gltf"></a-asset-item>
     
+    <video id="tres" autoplay loop="true" src="./tres.mp4"></video>
+    <video id="vidio" autoplay loop="true" src="./vidio.mp4"></video>
+</a-assets>
+
+<!-- GLTF -->
+<a-entity gltf-model="./pills.gltf" position="9 0.96365 -5.38918" scale="3 2.26 3" rotation="0.86 3.26 0" visible=""></a-entity>
+<a-entity gltf-model="./vitrina.gltf" position="7.54304 15.05032 -23.60528" scale="0.1 0.1 0.1" rotation="0.86 3.26 0" visible=""></a-entity>
+<a-entity gltf-model="./bed.gltf" position="-8.07007 -0.10216 -21.81316" scale="2 2 2" rotation="0.86 3.26 0" visible=""></a-entity>
+<a-entity gltf-model="./cup.gltf" position="-53.984 8.35523 5.6872" scale="10 10 10" rotation="16.033234999999998 7.017635 -7.9275" animation="property: rotation; to: 10 8 -40; dir: alternate; dur: 6000; easing: linear; loop: true"></a-entity>
+<a-entity gltf-model="./lamparas.gltf" position="-32.49098 -32.03477 27.45318" scale="0.3 0.2 0.3" rotation="-4.4702167176106835 -77.53092996371761 32.39274190551622" visible=""></a-entity>
+
+<a-entity gltf-model="./caballito.gltf" animation-mixer position="0.55394 0.47383 -76.42644" scale="4.3 4.2 4.3" rotation="2.149164689535718 -97.24526177857896 3.7952724349465727" 
+visible="" animation="property: position; to: -109.96823 0.47383 100.45318; dir: alternate; dur: 20000; easing: linear; loop: NaN"></a-entity>
+
+
+<!--  PAREDES -->
+<a-box static-body="sphereRadius: NaN" color="#70a3fa" position="-6.517 2.27754 2.158" scale="19.052 4.639 0.935" opacity=".5"></a-box>
+<a-box static-body="sphereRadius: NaN" color="white" position="6.509 2.27754 -2.412" scale="19.052 4.639 0.935" opacity=".5"></a-box>
+<a-box static-body="sphereRadius: NaN" color="white" position="15.81504 2.19754 -15.8204" scale="27.72039 4.639 0.935" rotation="0 90 0" ></a-box>
+<a-box static-body="sphereRadius: NaN" color="white" position="-15.631 2.27754 -13.5204" scale="32.36039 4.639 0.935" rotation="0 90 0"></a-box>
+<a-box static-body="sphereRadius: NaN" color="white" position="0.109 2.278 -29.37455" scale="32.412 4.639 0.935"></a-box>
+
+<!-- VIDEO -->
+<a-video src="#tres" width="16" height="9" position="40.84777 18.29652 17.70956"  geometry="primitive: torusKnot" scale="7.79 5.07 4.21"></a-video>
+<a-video src="#vidio" width="16" height="9" position="-40.84777 18.29652 17.70956"  geometry="primitive: ring" scale="7.79 5.07 4.21"></a-video>
+
+
+
+<!-- LUCES -->
+<!-- <a-light type=  "point" 
+position="32.49098 -32.03477 27.45318"
+rotation="7.14 -9.99 -9"
+color=  white
+angle=  "90"  
+intensity=".5"></a-light> -->
+
+
+
+<!-- 
+<a-light type="point" position="41.44686 40 16.51355" rotation="7.14 -9.99 -9" color="white" angle="90" intensity=".5" light="type: ambient; intensity: 0.27"></a-light>
+ -->
+
+
+<!-- <a-light type="point" position="-34.17488 -36.01847 59.48531" rotation="-9.413123616204293 10.504608215928513 -171.24791763988097" color="white" angle="90" intensity=".5" light="angle: 88.94; intensity: 0.96; penumbra: 0.02; shadowCameraVisible: true" visible=""></a-light>
+ -->
+
+
 </body>
 </html>
