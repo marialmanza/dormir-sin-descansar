@@ -21,10 +21,13 @@
 <!-- MOVIMIENTO DE LA CAMARA -->
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+
+<!-- TEXTO 3D -->
+<script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script> 
 </head>
 
-
-</head>
+<!-- enviropack -->
+<script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
 
 <body>
 
@@ -40,11 +43,16 @@
  -->
 
     <!-- AMBIENTE, animación cielo y suelo -->
- <a-entity environment="active: true; skyType: gradient; skyColor: #fb2566; horizonColor: #cfe0af; lightPosition: 1 4 1s; fog: 0.6; flatShading: true;  groundYScale: 3.5699999999999994;  groundColor: #b7f6f7; groundColor2: #f0cd89; dressing: stones; dressingAmount: 50;  dressingScale: 1.9; dressingOnPlayArea: 0.02;  shadowSize: 10.52; preset: yavapai" 
+ <a-entity environment="active: true; skyType: gradient; skyColor: #fb2566; horizonColor: #cfe0af; lightPosition: 1 4 1s; fog: 0.6; flatShading: true; 
+ groundYScale: 3 3 3;  groundColor: #b7f6f7; groundColor2: #f0cd89; dressing: stones; dressingAmount: 50;  dressingScale: 1.9; dressingOnPlayArea: 0.02;  shadowSize: 10.52; preset: yavapai"
  animation__cielo="property:environment.skyColor; to: #fa8b0c; dur: 8000; easing: linear; loop: true; dir: alternate"></a-entity>
  <!-- animation__pisos="property:environment.groundColor; to: #8FF7FF; dur: 8000; easing: linear; loop: true; dir: alternate" ></a-entity>
  -->
 
+<!-- POSICION CAMARA -->
+ <a-camera position="0 10 108"></a-camera>
+
+ <!-- light="type: hemisphere; color: #fcc288; intensity: 0.6; groundColor: #b7f6f7" -->
 
 <!-- ASSETS -->
  <a-assets>
@@ -55,6 +63,12 @@
     <a-asset-item id="lamparas" src="./lamparas.gltf"></a-asset-item>
     <a-asset-item id="caballito" src="./caballito.gltf"></a-asset-item>
     <a-asset-item id="dormida" src="./dormida.gltf"></a-asset-item>
+    <a-asset-item id="buroo" src="./buroo.gltf"></a-asset-item>
+    <a-asset-item id="dormir" src="./dormir.gltf"></a-asset-item>
+    <a-asset-item id="ellona" src="./ellona.gltf"></a-asset-item>
+
+    <a-asset-item id="optimerBoldFont"
+    src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
 
     <video id="tres" autoplay loop="true" src="./tres.mp4"></video>
     <video id="cuatro" autoplay loop="true" src="./cuatro.mp4"></video>
@@ -64,55 +78,62 @@
     <audio id="corte" src="./corte5.mp3"></audio>
 </a-assets>
 
+
 <!-- GLTF -->
-<a-entity gltf-model="./pills.gltf" position="9 0.96365 -5.38918" scale="3 2.26 3" rotation="0.86 3.26 0" visible=""></a-entity>
-<a-entity gltf-model="./vitrina.gltf" position="7.54304 15.05032 -23.60528" scale="0.1 0.1 0.1" rotation="0.86 3.26 0" visible=""></a-entity>
-<a-entity gltf-model="./bed.gltf" position="-7.07007 -0.10216 -21.81316" scale="2.5 2.5 2.5" rotation="0.86 3.26 0" visible=""></a-entity>
-<a-entity gltf-model="./cup.gltf" position="-53.984 8.35523 5.6872" scale="10 10 10" rotation="16.033234999999998 7.017635 -7.9275" animation="property: rotation; to: 10 8 -40; dir: alternate; dur: 6000; easing: linear; loop: true"></a-entity>
+
+<a-entity gltf-model="./pills.gltf" animation="property: position; to: 29 1.96365 -5.38918; dir: alternate; dur: 30000; easing: linear" position="29 1.96365 -5.38918" 
+scale="4.6 4 5" rotation="0.8600096504913657 -41.054717852304 0" visible=""></a-entity>
+
+<a-entity gltf-model="./bed.gltf" position="-6.48006 -0.10216 -21.84677" scale="3.5 3.5 3.5" rotation="0 -0.029870000000000004 0" visible=""></a-entity>
+<a-entity gltf-model="./cup.gltf" position="-82.984 15.35523 18.6872" scale="10 10 10" rotation="2.42021581846254 0.932970953274684 0.803873817178525" 
+animation="property: rotation; to: 199.033234999999998 -70.017635 -7.9275; dir: alternate; dur: 60000; easing: linear; loop: true"></a-entity>
 
 <a-entity gltf-model="./caballito.gltf" animation-mixer position="0.55394 0.47383 -76.42644" scale="4.3 4.2 4.3" rotation="2.149164689535718 -97.24526177857896 3.7952724349465727" 
-visible="" animation="property: position; to: -109.96823 0.47383 200.45318; dir: alternate; dur: 20000; easing: linear; loop: true"></a-entity>
-<a-entity gltf-model="./dormida.gltf" animation-mixer position="-6.07007 3.7 -19.81316" scale=".0001 .0001 .0001" rotation="0.86 3.26 0" visible=""></a-entity>
-
+visible="" animation="property: position; to: -98 .47 171.33; dir: alternate; dur: 40000; easing: linear; loop: true"></a-entity>
+<a-entity gltf-model="./buroo.gltf" position="-142.10897 -2.3211 -112.59622" scale="0.5 0.5 0.5" rotation="0 46.20503547273498 0" visible=""></a-entity>
+<a-entity gltf-model="./ellona.gltf" animation-mixer="" position="-6.8547 7.05281 -21.22733" scale="0.007 0.009 0.009" 
+rotation="9.822215481927703 7.372820907743432 177.19923025790482" visible=""></a-entity>
 <!--  PAREDES -->
-<a-box static-body color="tomato" position="-6.517 2.27754 2.158" scale="19.052 4.639 0.935" opacity=".5"></a-box>
-<a-box static-body="sphereRadius: NaN" color="white" position="6.509 2.27754 -2.412" scale="19.052 4.639 0.935" opacity=".5"></a-box>
-<a-box static-body="sphereRadius: NaN" color="white" position="15.81504 2.19754 -15.8204" scale="27.72039 4.639 0.935" rotation="0 90 0" ></a-box>
-<a-box static-body="sphereRadius: NaN" color="white" position="-15.631 2.27754 -13.5204" scale="32.36039 4.639 0.935" rotation="0 90 0"></a-box>
-<a-box static-body="sphereRadius: NaN" color="white" position="0.109 2.278 -29.37455" scale="32.412 4.639 0.935"></a-box>
+<a-box static-body="" color="white" position="-5.91316 3.61243 1.99859" scale="27.77197 7.47958 0.935" opacity=".5" ></a-box>
+<a-box static-body="" color="tomato" position="15.06334 5.21132 -4.81188" scale="27.77197 10.65164 0.935" opacity=".5" ></a-box>
+<a-box static-body="sphereRadius: NaN" color="white" position="-19.4046 5.30874 -18.71949" scale="42.55647 10.55968 0.935" rotation="0 90 0" ></a-box>
+<a-box static-body="sphereRadius: NaN" color="white" position="28.42817 5.30874 -22.83217" scale="35.4565 10.55968 0.935" rotation="0 90 0" ></a-box>
+<a-box static-body="sphereRadius: NaN" color="white" position="4.48495 5.48684 -40.10972" scale="48.61904 10.10575 0.935" ></a-box>
 
 <!-- VIDEO -->
-<a-video src="#tres" width="16" height="9" position="40.84777 18.29652 17.70956"  geometry="primitive: torusKnot" scale="7.79 5.07 4.21"></a-video>
+<a-video src="#tres" width="16" height="9" position="40.84777 41.29652 27.70956"  geometry="primitive: torusKnot" scale="7.79 5.07 4.21" rotation="2.42021581846254 0.932970953274684 0.803873817178525"
+animation="property: position; to: 80 41.29652 27.70956; dir: alternate; dur: 30000; easing: linear; loop:true"></a-video>
 <!-- <a-video src="#video" width="16" height="9" position="-40.84777 18.29652 17.70956"  geometry="primitive: ring" scale="7.79 5.07 4.21"></a-video> -->
 <!-- <a-video src="#video" width="16" height="9" position="-14.14222 18.29652 -31.88582" geometry="primitive: ring" scale="19.92874 11.40425 12.82962" material=""></a-video> -->
 
-<a-video src="#videoo" width="16" height="9" position="-14.14222 28.29652 -51.88582" geometry="primitive: ring" scale="42.55952 18.55174 12.82962" 
-material="" animation="property: rotation; to: 159 0.47383 0.45318; dir: alternate; dur: 20000; easing: linear; loop: true"></a-video>
-
-
-
+<a-video src="#videoo" width="16" height="9" position="-14.14222 28.29652 -51.88582" geometry="primitive: ring" scale="52.55952 24.55174 22.82962" 
+animation="property: rotation; to: 159 0.47383 0.45318; dir: alternate; dur: 20000; easing: linear; loop: true"></a-video>
 
 <a-sound src="#corte"></a-sound>
 
 
-<!-- LUCES -->
+ <a-entity text-geometry="value: Audio por @escapedelruido66; 
+ font: https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json; 
+ size: 2.7; height: 1; bevelEnabled: true; bevelSize: 0.04; bevelThickness: 0.04; curveSegments: 1" 
+ position="80.62971 34.13229 93.67129" enviropack-material="" 
+ material="ambientOcclusionMap: https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/asset/aerial_grass_rock_2k_jpg/aerial_grass_rock_ao_2k.jpg; normalMap: https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/asset/aerial_grass_rock_2k_jpg/aerial_grass_rock_nor_2k.jpg; roughness: 1; roughnessMap: https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/asset/aerial_grass_rock_2k_jpg/aerial_grass_rock_rough_2k.jpg; 
+ src: https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/asset/aerial_grass_rock_2k_jpg/aerial_grass_rock_diff_2k.jpg" 
+ rotation="7.56476176911226 -162.72115973274407 3.250962529572291"></a-entity>
+
+
+
+ <!-- LUCES -->
 <!-- <a-light type=  "point" 
-position="32.49098 -32.03477 27.45318"
+position="80.62971 104.13229 93.67129"
 rotation="7.14 -9.99 -9"
 color=  white
-angle=  "90"  
+angle=  "970"  
 intensity=".5"></a-light> -->
 
 
-
-<!-- 
-<a-light type="point" position="41.44686 40 16.51355" rotation="7.14 -9.99 -9" color="white" angle="90" intensity=".5" light="type: ambient; intensity: 0.27"></a-light>
+<!-- <a-light type="point" position="23.58379 56.74423 -26.93148" rotation="3.6331253789245497 -152.949937494583 -59.66381408035802" color="white" angle="90" intensity=".5" light="color: #ff6ce7; angle: 17.5; intensity: 0.01; shadowCameraBottom: -4.95; shadowCameraVisible: true" visible=""></a-light>
  -->
 
-
-<!-- <a-light type="point" position="-34.17488 -36.01847 59.48531" rotation="-9.413123616204293 10.504608215928513 -171.24791763988097" color="white" angle="90" intensity=".5" light="angle: 88.94; intensity: 0.96; penumbra: 0.02; shadowCameraVisible: true" visible=""></a-light>
- -->
-
-
+</a-scene>
 </body>
 </html>
